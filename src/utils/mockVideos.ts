@@ -1,3 +1,15 @@
+export type VideoType = {
+  id: number;
+  thumbnail: string;
+  title: string;
+  channelName: string;
+  channelAvatar: string;
+  views: number;
+  uploadedAt: Date;
+  url: string;
+  duration: string;
+};
+
 const mockVideos = [
   {
     id: 1,

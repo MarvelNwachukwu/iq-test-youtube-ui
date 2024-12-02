@@ -4,32 +4,21 @@ import { useSidebar } from '@/contexts/SidebarContext';
 import mockVideos from '@/utils/mockVideos';
 import { VideoCard } from '@/components/features/videos/VideoCard';
 import Image from 'next/image';
-import { CategoryPills } from '@/components/layout/CategoryPills';
 import { Usable, use, useState } from 'react';
 import SubscribeButton from '@/components/buttons/Subscribe';
 import ChannelCategories from '@/components/channel-page/channel-categories';
-import { ArrowRight, ChevronRight, Search } from 'lucide-react';
+import { ChevronRight, Search } from 'lucide-react';
 import { VideoPlayer } from '@/components/features/videos/VideoPlayer';
 
-const categories = [
-  'Home',
-  'Videos',
-  'Playlists',
-  'Community',
-  'Channels',
-  'About',
-];
+type Params = Promise<{ channelName: string }>
 
-export default function ChannelPage({
-  params,
-}: {
-  params: { channelName: string };
-}) {
+
+export default function ChannelPage(props: { params: Params }) {
   const { isCollapsed } = useSidebar();
   const [selectedCategory, setSelectedCategory] = useState('Home');
 
   const paramsFromUrl = use(
-    params as unknown as Usable<{
+    props.params as unknown as Usable<{
       channelName: string;
     }>
   );

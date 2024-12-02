@@ -6,9 +6,8 @@ import { AppIcon } from "../../../public/icons/app-icon";
 import { Bell, Menu, Search } from "lucide-react";
 import { CreateIcon } from "../../../public/icons/create";
 import { Mic } from "../../../public/icons/mic";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useSidebar } from "@/contexts/SidebarContext";
-import { useState } from "react";
 import { useSearchQuery } from "@/contexts/SearchQueryContext";
 
 

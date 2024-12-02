@@ -17,10 +17,10 @@ export default function NotFound() {
 
       <div className='text-center'>
         <h1 className='text-2xl font-bold text-white mb-2'>
-          Oops! This feature isn't available yet
+          Oops! This feature isn&apos;t available yet
         </h1>
         <p className='text-gray-400 mb-6'>
-          We're working hard to bring you more features. Stay tuned!
+          We&apos;re working hard to bring you more features. Stay tuned!
         </p>
         <Link
           href='/'
