@@ -3,9 +3,6 @@ import {
   Play,
   SkipForward,
   Volume2,
-  Maximize2,
-  Subtitles,
-  Settings,
   Pause,
 } from 'lucide-react';
 import { InfoIcon } from '../../../../public/icons/ico-info';
