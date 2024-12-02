@@ -7,11 +7,10 @@ import Image from 'next/image';
 import { Usable, use, useState } from 'react';
 import SubscribeButton from '@/components/buttons/Subscribe';
 import ChannelCategories from '@/components/channel-page/channel-categories';
-import { ChevronRight, Search } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { VideoPlayer } from '@/components/features/videos/VideoPlayer';
 
-type Params = Promise<{ channelName: string }>
-
+type Params = Promise<{ channelName: string }>;
 
 export default function ChannelPage(props: { params: Params }) {
   const { isCollapsed } = useSidebar();
@@ -41,50 +40,51 @@ export default function ChannelPage(props: { params: Params }) {
         isCollapsed ? 'md:pl-20' : 'md:pl-64'
       }`}
     >
-      <div className='h-[200px] bg-gradient-to-r from-blue-500 to-purple-500' />
+      <div className='h-[150px] sm:h-[200px] bg-gradient-to-r from-blue-500 to-purple-500' />
 
-      <div className='pb-0 pt-4 px-20  border-b border-gray-800 bg-[#181818]'>
-        <div className='flex items-center gap-6 mb-4'>
+      <div className='pb-0 pt-4 px-4 sm:px-8 md:px-20 border-b border-gray-800 bg-[#181818]'>
+        <div className='flex items-center gap-4 sm:gap-6 mb-4'>
           <Image
             src={channelAvatar}
             alt={displayName}
-            width={80}
-            height={80}
-            className='rounded-full border-4 border-[#0f0f0f]'
+            width={60}
+            height={60}
+            className='sm:w-[80px] sm:h-[80px] rounded-full border-4 border-[#0f0f0f]'
           />
           <div className='flex-1'>
-            <h1 className='text-2xl font-bold text-white'>{displayName}</h1>
-            <p className='text-gray-400 text-sm mt-1'>1.2M subscribers</p>
+            <h1 className='text-xl sm:text-2xl font-bold text-white'>
+              {displayName}
+            </h1>
+            <p className='text-gray-400 text-xs sm:text-sm mt-1'>
+              1.2M subscribers
+            </p>
           </div>
           <SubscribeButton />
         </div>
 
-        <div className='flex items-center justify-between'>
+        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0'>
           <ChannelCategories
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
 
-          <div className='flex items-center gap-2 justify-between w-1/3'>
-            <Search className='w-6 h-6 text-gray-400' />
-            <ChevronRight className='w-6 h-6 text-gray-400' />
-          </div>
+          <ChevronRight className='hidden sm:block w-6 h-6 text-gray-400' />
         </div>
       </div>
 
-      <section className='px-20'>
-        <div className='flex gap-4 p-4 pb-8 border-b-2 border-gray-800'>
-          <div className='h-[280px] w-[500px] bg-[#7e3939]'>
+      <section className='px-4 sm:px-8 md:px-20'>
+        <div className='flex flex-col lg:flex-row gap-4 p-4 pb-8 border-b-2 border-gray-800'>
+          <div className='w-full lg:w-[500px] aspect-video'>
             <VideoPlayer {...channelVideos[0]} />
           </div>
-          <div className='flex-1 max-w-[600px]'>
-            <h1 className='text-xl font-bold text-white'>
+          <div className='flex-1 max-w-full lg:max-w-[600px]'>
+            <h1 className='text-lg sm:text-xl font-bold text-white'>
               {channelVideos[0].title}
             </h1>
-            <p className='text-gray-400 text-sm font-bold my-4'>
+            <p className='text-gray-400 text-xs sm:text-sm font-bold my-2 sm:my-4'>
               {channelVideos[0].views.toLocaleString()} views . 3 weeks ago
             </p>
-            <p>
+            <p className='text-sm sm:text-base'>
               Chris Fisher, also known as the Blind Woodturner, learned his
               craft by listening to hundreds of hours of YouTube videos and
               experimenting in his workshop. Now he&apos;s a YouTube creator
@@ -95,8 +95,10 @@ export default function ChannelPage(props: { params: Params }) {
         </div>
 
         {selectedCategory === 'Videos' && (
-          <div className='pt-8'>
-            <p className='text-white text-lg font-bold'>Videos</p>
+          <div className='pt-4 sm:pt-8'>
+            <p className='text-white text-base sm:text-lg font-bold px-4'>
+              Videos
+            </p>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4'>
               {channelVideos.map((video) => (
@@ -107,8 +109,10 @@ export default function ChannelPage(props: { params: Params }) {
         )}
 
         {selectedCategory === 'Home' && (
-          <div className='pt-8'>
-            <p className='text-white text-lg font-bold'>Search on 21</p>
+          <div className='pt-4 sm:pt-8'>
+            <p className='text-white text-base sm:text-lg font-bold px-4'>
+              Search on 21
+            </p>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4'>
               {Array.from(Array(5)).map((_, index) => (

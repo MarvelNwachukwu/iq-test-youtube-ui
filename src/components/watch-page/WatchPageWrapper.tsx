@@ -14,20 +14,16 @@ const WatchPageWrapper = () => {
   const videoId = searchParams.get('v');
   const video = mockVideos.find((v) => v.url === `/watch?v=${videoId}`);
   const categories = ['All', `From ${video?.channelName}`];
-  
-  const relatedVideos = useMemo(
-    () => {
-      if (selectedCategory === 'All') {
-        return mockVideos.filter((v) => v.url !== `/watch?v=${videoId}`);
-      }
-      return mockVideos.filter(
-        (v) => v.url !== `/watch?v=${videoId}` && v.channelName === video?.channelName
-      );
-    },
-    [videoId, selectedCategory]
-  );
 
-  
+  const relatedVideos = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return mockVideos.filter((v) => v.url !== `/watch?v=${videoId}`);
+    }
+    return mockVideos.filter(
+      (v) =>
+        v.url !== `/watch?v=${videoId}` && v.channelName === video?.channelName
+    );
+  }, [videoId, selectedCategory, video?.channelName]);
 
   if (!video) return null;
 
@@ -76,13 +72,11 @@ const WatchPageWrapper = () => {
               key={video.id}
             />
           ))}
-          {
-            relatedVideos.length === 0 && (
-              <div className='text-white/50 text-sm'>
-                No related videos found, visit a channel with more videos.
-              </div>
-            )
-          }
+          {relatedVideos.length === 0 && (
+            <div className='text-white/50 text-sm'>
+              No related videos found, visit a channel with more videos.
+            </div>
+          )}
         </div>
       </aside>
     </div>

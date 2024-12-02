@@ -13,8 +13,8 @@ const ChannelNameTag = ({
   const channelLink = generateChannelLink(channelName);
 
   return (
-    <div className='flex flex-row gap-4 items-start py-4 border-b border-t border-gray-600 my-4'>
-      <Link href={`/${channelLink}`}>
+    <div className='flex flex-col sm:flex-row gap-4 items-start py-4 border-b border-t border-gray-600 my-4'>
+      <Link href={`/${channelLink}`} className='flex-shrink-0'>
         <Image
           src={channelAvatar}
           alt={channelName}
