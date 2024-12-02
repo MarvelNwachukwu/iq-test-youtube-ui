@@ -76,6 +76,13 @@ const WatchPageWrapper = () => {
               key={video.id}
             />
           ))}
+          {
+            relatedVideos.length === 0 && (
+              <div className='text-white/50 text-sm'>
+                No related videos found, visit a channel with more videos.
+              </div>
+            )
+          }
         </div>
       </aside>
     </div>
