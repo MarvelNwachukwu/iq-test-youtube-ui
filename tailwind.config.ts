@@ -1,18 +1,29 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+// @ts-expect-error: tailwind-scrollbar-hide is not a module
+import scrollbarHide from 'tailwind-scrollbar-hide';
 
-export default {
+const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'yt-black': '#0f0f0f',
+        'yt-red': '#ff0000',
+        'yt-gray': {
+          light: '#272727',
+          dark: '#181818',
+        },
+      },
+      fontFamily: {
+        roboto: ['var(--font-roboto)', 'sans-serif'],
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [scrollbarHide],
+};
+
+export default config;

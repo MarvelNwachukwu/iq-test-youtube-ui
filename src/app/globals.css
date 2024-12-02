@@ -3,19 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 15, 15, 15;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Base styles for mobile */
+@layer base {
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  /* Tablet (md) */
+  @media (min-width: 768px) {
+    :root {
+      --sidebar-width: 72px;
+    }
+  }
+
+  /* Desktop (lg) */
+  @media (min-width: 1024px) {
+    :root {
+      --sidebar-width: 240px;
+    }
+  }
 }
