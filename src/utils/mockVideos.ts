@@ -170,7 +170,7 @@ const mockVideos = [
     thumbnail: 'https://img.youtube.com/vi/sBws8MSXN7A/hqdefault.jpg',
     title: 'Building a Todo App with React and Firebase',
     channelName: 'Jesica Lambert',
-    channelAvatar: '/avatars/Jesica.png',
+    channelAvatar: "/avatars/Jessica.png",
     views: 71000,
     uploadedAt: new Date('2024-09-25'),
     url: '/watch?v=15',
@@ -190,7 +190,7 @@ const mockVideos = [
   {
     id: 17,
     thumbnail: 'https://img.youtube.com/vi/Ke90Tje7VS0/hqdefault.jpg',
-    title: 'React 18: What’s New and How to Use It',
+    title: "React 18: What's New and How to Use It",
     channelName: 'Skylar Dias',
     channelAvatar: '/avatars/Skylar.png',
     views: 113000,

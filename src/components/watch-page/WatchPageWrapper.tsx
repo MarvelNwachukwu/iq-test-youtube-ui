@@ -6,19 +6,28 @@ import { CategoryPill } from '../layout/CategoryPills';
 import ChannelNameTag from './ChannelNameTag';
 import { CommentSection } from './CommentSection';
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 const WatchPageWrapper = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const searchParams = useSearchParams();
   const videoId = searchParams.get('v');
   const video = mockVideos.find((v) => v.url === `/watch?v=${videoId}`);
-  const relatedVideos = mockVideos.filter(
-    (v) => v.url !== `/watch?v=${videoId}`
+  const categories = ['All', `From ${video?.channelName}`];
+  
+  const relatedVideos = useMemo(
+    () => {
+      if (selectedCategory === 'All') {
+        return mockVideos.filter((v) => v.url !== `/watch?v=${videoId}`);
+      }
+      return mockVideos.filter(
+        (v) => v.url !== `/watch?v=${videoId}` && v.channelName === video?.channelName
+      );
+    },
+    [videoId, selectedCategory]
   );
 
-  const categories = ['All', `From ${video?.channelName}`];
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
+  
 
   if (!video) return null;
 

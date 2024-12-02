@@ -82,7 +82,7 @@ export default function ChannelPage(props: { params: Params }) {
               {channelVideos[0].title}
             </h1>
             <p className='text-gray-400 text-sm font-bold my-4'>
-              {channelVideos[0].views} views . 3 weeks ago
+              {channelVideos[0].views.toLocaleString()} views . 3 weeks ago
             </p>
             <p>
               Chris Fisher, also known as the Blind Woodturner, learned his

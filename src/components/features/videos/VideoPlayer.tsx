@@ -9,6 +9,11 @@ import {
   Pause,
 } from 'lucide-react';
 import { InfoIcon } from '../../../../public/icons/ico-info';
+import { FullscreenIcon } from '../../../../public/icons/ico-fullscreen';
+import { TVIcon } from '../../../../public/icons/ico-tv';
+import { TheaterIcon } from '../../../../public/icons/ico-theater';
+import { HDIcon } from '../../../../public/icons/ico-hd';
+import { TitleIcon } from '../../../../public/icons/ico-titles';
 
 interface VideoPlayerProps {
   thumbnail: string;
@@ -77,13 +82,19 @@ export const VideoPlayer = ({
 
             <div className='flex items-center gap-2'>
               <button className={iconButtonClass}>
-                <Subtitles className={iconClass} />
+                <TitleIcon className={iconClass} />
               </button>
               <button className={iconButtonClass}>
-                <Settings className={iconClass} />
+                <HDIcon className={iconClass} />
               </button>
               <button className={iconButtonClass}>
-                <Maximize2 className={iconClass} />
+                <TheaterIcon className={iconClass} />
+              </button>
+              <button className={iconButtonClass}>
+                <TVIcon className={iconClass} />
+              </button>
+              <button className={iconButtonClass}>
+                <FullscreenIcon className={iconClass} />
               </button>
             </div>
           </div>
