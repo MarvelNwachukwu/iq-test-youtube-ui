@@ -77,8 +77,8 @@ export const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed left-0 top-14 h-[calc(100vh-3.5rem)] text-white overflow-y-auto hidden md:block transition-all duration-300 ${
-        hideSidebar ? 'w-20 bg-transparent' : 'w-64 bg-[#212121]'
+      className={`fixed left-0 top-14 h-[calc(100vh-3.5rem)] text-white overflow-y-auto md:block transition-all duration-300 z-10 ${
+        hideSidebar ? 'w-20 bg-transparent hidden md:block' : 'w-64 bg-[#212121] block'
       } ${isWatchPage ? '!hidden' : ''}`}
     >
       <div
